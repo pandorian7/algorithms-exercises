@@ -11,14 +11,19 @@
 */
 
 function bubbleSort(nums) {
-  let tmp;
+  let tmp, swapped;
   for (let i=nums.length; i>=0; i--) {
+    swapped = false;
     for (let j=0; j<i-1; j++) {
       if (nums[j]>nums[j+1]) {
+        swapped = true;
         tmp = nums[j];
         nums[j] = nums[j+1];
         nums[j+1] = tmp;
       }
+    }
+    if (!swapped) {
+      break;
     }
   }
   return nums;
